@@ -13,5 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\MemberController;
 
 Route::get('/', [IndexController::class, 'index']);
+Route::get('/member/create', [MemberController::class, 'create']);
