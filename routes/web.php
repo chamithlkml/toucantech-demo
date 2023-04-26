@@ -16,4 +16,5 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MemberController;
 
 Route::get('/', [IndexController::class, 'index']);
-Route::get('/member/create', [MemberController::class, 'create']);
+Route::get('/members/create', [MemberController::class, 'create']);
+Route::post('/members/store', [MemberController::class, 'store']);
