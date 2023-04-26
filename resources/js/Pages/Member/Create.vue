@@ -9,7 +9,7 @@
   </div>
   <form @submit.prevent="form.post('/members/store')" class="needs-validation" novalidate>
     <div class="row justify-content-center">
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-3 has-validation">
         <label for="name" class="form-label">Name</label>
         <input v-model="form.name" type="string" class="form-control" id="name" required>
         <small v-if="form.errors.name" class="form-text text-muted">{{ form.errors.name }}</small>
@@ -28,8 +28,8 @@
         <select v-model="form.school_id" name="school_id" class="form-select" required>
           <option>Select</option>
           <option v-for="school in schools" :key="school.id" :value="school.id">{{ school.name }}</option>
-          <small v-if="form.errors.school_id" class="form-text text-muted">{{ form.errors.school_id }}</small>
         </select>
+        <small v-if="form.errors.school_id" class="form-text text-muted">{{ form.errors.school_id }}</small>
       </div>
     </div>
     <div class="row justify-content-center">
