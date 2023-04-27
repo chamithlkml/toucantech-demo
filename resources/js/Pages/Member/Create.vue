@@ -2,7 +2,7 @@
 <div class="container">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 mt-2">
         <h2 class="text-center">Add new member</h2>
       </div>
     </div>
@@ -44,7 +44,9 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3'
 
-defineProps(['schools'])
+defineProps({
+  schools: Array
+})
 
 const form = useForm({
   name: null,

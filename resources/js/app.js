@@ -9,6 +9,8 @@ import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3'
 import MainLayout from './Layouts/MainLayout.vue'
 import { ZiggyVue } from 'ziggy'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -27,7 +29,7 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
-      .use(ZiggyVue)
+      .use(ZiggyVue, VueAxios, axios)
       .mount(el)
   },
 })

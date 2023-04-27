@@ -33,4 +33,12 @@ class MemberController extends Controller
         ->with('message', 'Member is added');
     }
 
+    public function show(): Response
+    {
+        return Inertia::render('Member/Show', [
+            'schools' => School::all(),
+            'members' => []
+        ]);
+    }
+
 }
