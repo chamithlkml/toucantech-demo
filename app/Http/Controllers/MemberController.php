@@ -8,6 +8,7 @@ use Inertia\Response;
 use App\Models\School;
 use Illuminate\Http\Request;
 use App\Models\Member;
+use Illuminate\Support\Facades\Cache;
 
 class MemberController extends Controller
 {
@@ -15,7 +16,7 @@ class MemberController extends Controller
     {
 
         return Inertia::render('Member/Create', [
-            'schools' => School::all()
+            'schools' => Cache::get('schools')
         ]);
     }
 
@@ -36,7 +37,7 @@ class MemberController extends Controller
     public function show(): Response
     {
         return Inertia::render('Member/Show', [
-            'schools' => School::all(),
+            'schools' => Cache::get('schools'),
             'members' => []
         ]);
     }
