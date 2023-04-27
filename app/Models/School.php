@@ -20,27 +20,17 @@ class School extends Model
      */
     protected static function booted(): void
     {
-        function updateSchoolCache()
-        {
-            if(Cache::has('schools')){
-                Cache::forget('schools');
-            }
-    
-            Cache::rememberForever('schools', function(){
-                return School::all();
-            });
-        }
 
         static::created(function (School $school) {
-            updateSchoolCache();
+            School::updateSchoolCache();
         });
 
         static::updated(function(School $school){
-            updateSchoolCache();
+            School::updateSchoolCache();
         });
 
         static::deleted(function(School $school){
-            updateSchoolCache();
+            School::updateSchoolCache();
         });
     }
 
@@ -52,5 +42,15 @@ class School extends Model
     public function members(): HasMany
     {
         return $this->hasMany(Member::class);
+    }
+
+    public static function updateSchoolCache(): void{
+        if(Cache::has('schools')){
+            Cache::forget('schools');
+        }
+
+        Cache::rememberForever('schools', function(){
+            return School::all();
+        });
     }
 }

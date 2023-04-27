@@ -11,5 +11,6 @@ rm composer.lock
 ./vendor/bin/sail composer install
 
 ./vendor/bin/sail npm run dev &
+./vendor/bin/sail artisan cache:clear
 ./vendor/bin/sail artisan migrate
 ./vendor/bin/sail artisan db:seed

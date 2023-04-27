@@ -8,6 +8,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Inertia\Testing\AssertableInertia as Assert;
 use Tests\TestCase;
 use App\Models\School;
+use Illuminate\Support\Facades\Cache;
 
 class MemberTest extends TestCase
 {
@@ -36,7 +37,7 @@ class MemberTest extends TestCase
 
         $response->assertInertia(fn (Assert $inertia) => $inertia
             ->component('Member/Create')
-            ->has('schools', School::all()->count())
+            ->has('schools', Cache::get('schools'))
         );
     }
 
@@ -63,7 +64,7 @@ class MemberTest extends TestCase
 
         $response->assertInertia(fn (Assert $inertia) => $inertia
             ->component('Member/Show')
-            ->has('schools', School::all()->count())
+            ->has('schools', Cache::get('schools'))
         );
     }
 
