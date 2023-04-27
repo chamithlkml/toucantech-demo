@@ -3,3 +3,6 @@ up:
 
 down:
 	./remove_containers
+
+test:
+	./vendor/bin/sail test
