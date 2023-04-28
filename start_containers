@@ -14,3 +14,5 @@ rm composer.lock
 ./vendor/bin/sail artisan cache:clear
 ./vendor/bin/sail artisan migrate
 ./vendor/bin/sail artisan db:seed
+
+echo "Open browser and navigate to https://localhost to check the app"

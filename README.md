@@ -23,7 +23,7 @@ git clone git@github.com:chamithlkml/toucantech-demo.git
 cd toucantech-demo
 make up
 ```
-This should download the Docker images and build the app from scratch.
+This should download the Docker images and build the app from scratch. Once the build process is completed open your browser and navigate to http://localhost to view the app
 
 ### Run tests
 ```
