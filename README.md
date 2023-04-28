@@ -63,3 +63,6 @@ Click `View Members` button
 - Select a school from the dropdown menu and it will list members of the school if found.
 
 ![View Members](screenshots/view-members.png)
+
+## Usage of Laravel Cache
+Since the list of schools needs to be loaded in multiple pages schools array is loaded to the cache. The schools list in cache is subjected to updated whenever a new school created, updated or deleted via the School model.
