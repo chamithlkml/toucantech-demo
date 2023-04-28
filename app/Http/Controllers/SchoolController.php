@@ -7,6 +7,12 @@ use App\Models\School;
 
 class SchoolController extends Controller
 {
+    /**
+     * Returns an array of members owned by a given school
+     *
+     * @param string $id
+     * @return array
+     */
     public function get(string $id): array
     {
         $school = School::find($id);

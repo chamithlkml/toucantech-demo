@@ -2,13 +2,9 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Inertia\Testing\AssertableInertia as Assert;
 use Tests\TestCase;
 use App\Models\School;
-use Illuminate\Support\Facades\Cache;
 
 class MemberTest extends TestCase
 {
@@ -33,11 +29,14 @@ class MemberTest extends TestCase
      */
     public function test_create_member_page_has_schools(): void
     {
+        School::factory()
+                ->count(20)
+                ->create();
         $response = $this->get('/members/create');
 
         $response->assertInertia(fn (Assert $inertia) => $inertia
             ->component('Member/Create')
-            ->has('schools', Cache::get('schools'))
+            ->has('schools', School::all()->count())
         );
     }
 
@@ -60,11 +59,14 @@ class MemberTest extends TestCase
      */
     public function test_view_members_page_has_schools(): void
     {
+        School::factory()
+                ->count(20)
+                ->create();
         $response = $this->get('/members/show');
 
         $response->assertInertia(fn (Assert $inertia) => $inertia
             ->component('Member/Show')
-            ->has('schools', Cache::get('schools'))
+            ->has('schools', School::all()->count())
         );
     }
 
