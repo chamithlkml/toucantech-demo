@@ -35,3 +35,31 @@ This will run the tests and give you the results.
 ```
 make down
 ```
+
+## Add New Member
+- Click `Add New Member` button
+
+![Add new member page](screenshots/add-new-member.png)
+- Enter a Name, Email address and select a school from the dropdown menu.
+- The application has 20 dummy schools already seeded on building process
+
+![Fill Add new member form](screenshots/fill-add-new-member.png)
+- Click Submit button and the app will add the member and redirect you to the home page with a success message
+
+![Success message](screenshots/add-confirmation.png)
+
+### Form validation
+- Form validation is added in both client-side and server-side. Bootstrap form validation is used for client-side validation.
+
+![Client-side validation](screenshots/form-validation-1.png)
+
+![Server-side validation](screenshots/server-side-validation.png)
+
+## View Member
+Click `View Members` button
+
+![View Members Page](screenshots/view-members-page.png)
+
+- Select a school from the dropdown menu and it will list members of the school if found.
+
+![View Members](screenshots/view-members.png)
